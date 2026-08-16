@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: google-cloud-admin-mcp
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: SETUP_MODE
+        value: "true"
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: GOOGLE_CLOUD_PROJECT_ID
+        sync: false
